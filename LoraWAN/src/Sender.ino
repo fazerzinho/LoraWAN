@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <LoRa.h>
+#include "string.h"
 
 #define ss 5
 #define rst 34
@@ -8,7 +9,7 @@
 int counter = 0;
 
 void initLora();//Initiaizing SPI and Lora chip
-void sendPacket(string message);//Sending packet, requires initLora() to work!!
+void sendPacket(String message);//Sending packet, requires initLora() to work!!
 
 void setup() {
   Serial.begin(9600);
@@ -38,7 +39,7 @@ void initLora(){
   }
   }
 
-  void sendPacket(string message){
+  void sendPacket(String message){
       // wait until the radio is ready to send a packet
   Serial.print("Sending packet non-blocking: ");
   Serial.println(counter);
